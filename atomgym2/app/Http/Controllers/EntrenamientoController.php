@@ -75,9 +75,9 @@ class EntrenamientoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Entrenamiento $entrenamiento)
+    public function informacion($id)
     {
-        //
+        return view('informacion', ['entrenamiento' => Entrenamiento::find($id)]);
     }
 
     /**
@@ -94,6 +94,7 @@ class EntrenamientoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([#validaciones de los campos
+        'musculo_id' =>'required|',
         'nombre_ejercicio'=>'required|min:1',
         'series'=>'required|min:1',
         'repeticiones'=>'required |min:1',
@@ -102,6 +103,7 @@ class EntrenamientoController extends Controller
         
     ]);
         $entrenamiento = Entrenamiento::find($id);
+        $entrenamiento->musculo_id = $request->input('musculo_id');
         $entrenamiento->nombre_ejercicio = $request->input('nombre_ejercicio');
         $entrenamiento->series = $request->input('series');
         $entrenamiento->repeticiones = $request->input('repeticiones');

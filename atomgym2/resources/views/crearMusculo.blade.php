@@ -1,3 +1,5 @@
+
+
 <style>
     .contenedor{
         display: flex;
@@ -83,50 +85,54 @@
 <x-app-layout>
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear entrenamiento') }}
+            {{ __('Crear músculo') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-black overflow-hidden shadow-sm sm:rounded-lg " >
-                <div class="p-6 text-gray-900 contenedor">
-                    <form class="formulario" method="POST" action="{{route ('registrarEntrenamiento')}}" enctype="multipart/form-data">
+                <div class="p-6 text-gray-900 contenedor" style="display:flex; flex-direction: column; align-items:center;">
+                    <form class="formulario" method="POST" action="{{route ('registrarMusculo')}}" enctype="multipart/form-data">
                         @csrf
                         <?php
                         $musculos = DB::table('musculos')->select('id', 'nombre')->get();
                         ?>
-                        <label class="label_titulo" for="musculo_id">Músculo:</label><br>
-                        <select class="select" name="musculo_id" id="musculo_id" class="form-select" style="border-radius:15px;" required>
+                        
+                        <label class="label_titulo" for="nombre">Nombre del Múculo nuevo:</label><br>
+                        <input class="input" type="text" id="nombre" name="nombre" style="border-radius:15px;" required><br>
+                       
+
+                        <button class="boton" type="submit" value="registrar" style="border:2px solid #FFA500; border-radius:15px;">
+                            <span>Añadir</span>
+                        </button>
+                    </form>
+
+                    <form class="formulario" method="POST" action="{{route ('eliminarMusculo')}}" enctype="multipart/form-data">
+                        @csrf
+                        <?php
+                        $musculos = DB::table('musculos')->select('id', 'nombre')->get();
+                        ?>
+                        <label class="label_titulo" for="nombre">Músculo a eliminar:</label><br>
+                        <select class="select" name="nombre" id="nombre" class="form-select" style="border-radius:15px;" required>
                         <option value="">Seleccione un músculo</option>
                          @foreach ($musculos as $musculo) <!--#Me recorre el array de musculos en el select -->
                         <option value="{{$musculo->id}}">{{$musculo->nombre}}</option>
                         @endforeach
                         </select><br>
 
-                        <label class="label_titulo" for="nombre_ejercicio">Nombre de ejercicio:</label><br>
-                        <input class="input" type="text" id="nombre_ejercicio" name="nombre_ejercicio" style="border-radius:15px;" required><br>
-                       
-                        <label class="label_titulo" for="series">Series:</label><br>
-                        <input class="input" type="number" id="series" name="series" style="border-radius:15px;" required><br>
-
-                        <label class="label_titulo" for="repeticiones">Repeticiones:</label><br>
-                        <input class="input" type="number" id="repeticiones" name="repeticiones" style="border-radius:15px;" required><br>
-                        
-                        <label class="label_titulo" for="descripcion">Descripción:</label><br>
-                        <textarea id="descripcion" name="descripcion" style="border-radius:15px;" required></textarea><br>
-
-                        <label class="label_titulo" for="imagen_ruta">Imágen:</label><br>
-                        <input type="file" id="imagen_ruta" name="imagen_ruta"><br>
-
-                        <button class="boton" type="submit" value="registrarse" style="border:2px solid #FFA500; border-radius:15px;">
+                        <button class="boton" type="submit" value="eliminar" style="border:2px solid #FFA500; border-radius:15px;">
                             <span>Añadir</span>
                         </button>
                     </form>
 
                 </div>
 
-                
+                @if ($errors->has('nombre'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('nombre') }}
+                    </div>
+                @endif
 
 
             </div>
