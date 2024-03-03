@@ -57,12 +57,11 @@ Se ha seguido el patrón de diseño Modelo Vista Controlador para la estructura 
 
 El archivo de configuración de la base de datos (` .env`) contiene la siguiente configuración para MySQL:
 
-CONNECTION=mysql
-HOST=localhost
-PORT=3306
-DATABASE=atomgym
-USERNAME=root
-PASSWORD=
+- CONNECTION=mysql
+- HOST=localhost
+- PORT=3306
+- DATABASE=atomgym
+- USERNAME=root
 
 ## Créditos
 
