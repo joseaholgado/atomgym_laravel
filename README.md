@@ -5,7 +5,8 @@ Proyecto en Laravel de 2ªDAW
 AtomGym es una página web de entrenamientos donde los usuarios pueden registrar rutinas de entrenamiento personalizadas. ![image](https://github.com/joseaholgado/atomgym_laravel/assets/115182985/8252e463-8063-41c7-bd35-b00137d1660b)
 
 
-Los usuarios pueden añadir ejercicios a su rutina, especificando el nombre del ejercicio, series, repeticiones, descripción y opcionalmente una imagen. ![image](https://github.com/joseaholgado/atomgym_laravel/assets/115182985/47b26eca-4374-459b-8a7f-97134d2ae881)
+Los usuarios pueden añadir ejercicios a su rutina, especificando el nombre del ejercicio, series, repeticiones, descripción y opcionalmente una imagen.
+![image](https://github.com/joseaholgado/atomgym_laravel/assets/115182985/47b26eca-4374-459b-8a7f-97134d2ae881)
 
 Además, la página está dividida en grupos musculares registrados en la base de datos, los cuales pueden ser administrados por el administrador, quien puede añadir o eliminar dichos grupos musculares. ![image](https://github.com/joseaholgado/atomgym_laravel/assets/115182985/a35b2e34-ee75-48fe-9ec6-fd9d5136d031)
 
