@@ -7,6 +7,14 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\EntrenamientoController;
 use App\Http\Controllers\MusculoController;
 
+
+    /**
+     * Este archivo define las rutas necesarias para las diferentes funcionalidades de la aplicación,
+     *  incluyendo el perfil de usuario, la gestión de entrenamientos y músculos, y las funcionalidades de autenticación.
+     *  Las rutas están agrupadas según el middleware de autenticación y verificación para garantizar que solo
+     *  los usuarios autenticados y verificados puedan acceder a ellas
+     */
+
 Route::get('/', function () {
     return view('welcome');
 });

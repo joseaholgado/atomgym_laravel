@@ -14,7 +14,8 @@ class ProfileController extends Controller
 {
     public $busqueda= '';
     /**
-     * Display the user's profile form.
+     * Esta función muestra el formulario para que el usuario edite su perfil. Retorna la vista 'profile.edit' 
+     * y pasa el usuario actual autenticado como una variable llamada 'user'.
      */
     public function edit(Request $request): View
     {
@@ -24,7 +25,8 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile information.
+     * Esta función actualiza la información del perfil del usuario. Primero valida los datos recibidos del formulario utilizando un objeto de tipo ProfileUpdateRequest, luego actualiza el modelo del usuario con los datos validados. Si el usuario ha cambiado su correo electrónico, la marca de tiempo de verificación de correo electrónico se establece en null. Finalmente,
+     *  redirecciona al usuario a la ruta 'profile.edit' con un mensaje de estado 'profile-updated'..
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
@@ -40,7 +42,8 @@ class ProfileController extends Controller
     }
 
     /**
-     * Delete the user's account.
+     * Esta función elimina un usuario y todos sus entrenamientos asociados. Busca al usuario por su ID, elimina todos sus entrenamientos y luego elimina al usuario. Finalmente,
+     *  redirecciona a la ruta 'dashboard' con un mensaje de éxito o error, dependiendo si se encontró o no el usuario.
      */
     public function eliminarUsuario($id)
     {
@@ -61,6 +64,11 @@ class ProfileController extends Controller
         }
     }
 
+    /**
+     * Esta función elimina un usuario y todos sus entrenamientos asociados. Busca al usuario por su ID, elimina todos sus entrenamientos y luego elimina al usuario. Finalmente,
+     *  redirecciona a la ruta 'dashboard' con un mensaje de éxito o error, dependiendo si se encontró o no el usuario.
+     */
+
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
@@ -78,6 +86,13 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    /**
+     * Esta función muestra la vista 'dashboard' con los entrenamientos y usuarios que coinciden con la búsqueda.
+     *  Si el usuario es un administrador, se mostrarán los usuarios que coinciden con la búsqueda. Si el usuario no es un
+     *  administrador, se mostrarán los entrenamientos que coinciden con la búsqueda. Si no se proporciona una búsqueda, se mostrarán
+     *  todos los entrenamientos y usuarios.
+     */
 
     public function render(Request $request)
     {
@@ -102,21 +117,6 @@ class ProfileController extends Controller
         }
 
         return view('dashboard', ['entrenamientos' => $entrenamientos, 'usuarios' => $usuarios, 'busqueda' => $busqueda]);
-                // $user = Auth::user();
-        // $busqueda = $request->input('busqueda');
-        // $entrenamientos = [];
-
-        // if ($busqueda && strlen($busqueda) >= 2) {
-        //     $entrenamientos = $user->entrenamientos()
-        //         ->where('nombre_ejercicio', 'like', '%' . $busqueda . '%')
-        //         ->orWhereHas('musculo', function ($query) use ($busqueda) {
-        //             $query->where('nombre', 'like', '%' . $busqueda . '%');
-        //         })
-        //         ->paginate(2);
-        // } else {
-        //     $entrenamientos = $user->entrenamientos()->paginate(2);
-        // }
-
-        // return view('dashboard', ['entrenamientos' => $entrenamientos, 'busqueda' => $busqueda]);
+        
     }
 }

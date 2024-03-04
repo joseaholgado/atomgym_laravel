@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class MusculosSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Corre los seeder para rellenar la tabla musculos
      */
     public function run(): void
     {

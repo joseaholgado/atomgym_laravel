@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Corre las migraciones para crear la tabla de entrenamientos.
      */
     public function up(): void
     {

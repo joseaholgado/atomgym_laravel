@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class UsersSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Corre los seeder para rellenar la tabla users
      */
     public function run(): void
     {
@@ -24,7 +24,7 @@ class UsersSeeder extends Seeder
             'roles' => 'admin',
         ]);
 
-        // Create some other users
+        // Crear 10 usuarios
         foreach (range(1, 10) as $index) {
             User::create([
                 'name' => 'User' . $index,

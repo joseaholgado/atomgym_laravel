@@ -10,22 +10,22 @@ use App\Models\Entrenamiento;
 class EntrenamientosSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Corre los seeder para rellenar la tabla entrenamientos
      */
     public function run(): void
     {
-        // Array of exercise names
+        // Array de 100 ejercicios
         $nombreEjercicio = ['Push-ups', 'Squats', 'Lunges', 'Pull-ups', 'Deadlifts', 'Bench Press', 'Bicep Curls', 'Tricep Dips', 'Shoulder Press', 'Leg Press'];
 
-        // Get all users
+        // Trae todos los usuarios
         $users = User::all();
 
-        // For each user, create 100 entrenamientos
+        // For de cada usuario, crea 100 entrenamientos
         foreach ($users as $user) {
             for ($i = 0; $i < 10; $i++) {
                 Entrenamiento::create([
                     'user_id' => $user->id,
-                    'musculo_id' => rand(1, 11), // replace with actual muscle id
+                    'musculo_id' => rand(1, 11), 
                     'nombre_ejercicio' => $nombreEjercicio[array_rand($nombreEjercicio)],
                     'series' => rand(1, 5),
                     'repeticiones' => rand(1, 10),

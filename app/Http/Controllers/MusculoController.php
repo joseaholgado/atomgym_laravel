@@ -7,16 +7,14 @@ use App\Models\Musculo;
 
 class MusculoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+    
 
     /**
-     * Show the form for creating a new resource.
+     *  Esta función se encarga de registrar un nuevo músculo en la base de datos.
+     *  Primero valida los datos recibidos del formulario, asegurando que el nombre del músculo sea único
+     *  y tenga al menos 3 caracteres. Luego crea una nueva instancia del modelo Musculo, asigna el nombre
+     *  del músculo recibido del formulario a la propiedad correspondiente del modelo y guarda el músculo en la base de datos.
+     *  Finalmente, redirecciona a la ruta 'dashboard'.
      */
     public function registrarMusculo(Request $request)
     {
@@ -26,16 +24,24 @@ class MusculoController extends Controller
            
         ]);
        
-        // Si la validación pasa, entonces puedes crear el nuevo músculo
+        
         $musculo = new Musculo;
-        $musculo->nombre = $request->nombre;
-        // Asigna aquí otros campos del formulario al modelo $musculo
+        $musculo->nombre = $request->nombre;   
         $musculo->save();
         
     
-        // Redirige al usuario a donde quieras que vaya después de crear el músculo
+       
         return redirect()->route('dashboard');
     }
+
+
+    /**
+     * Esta función se encarga de eliminar un músculo existente de la base de datos.
+     *  Busca el músculo por su ID, lo elimina y luego redirecciona a la ruta 'dashboard'.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function eliminarMusculo(Request $request)
     {
         // Buscar el músculo por su ID y eliminarlo

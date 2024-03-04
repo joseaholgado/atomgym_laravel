@@ -10,12 +10,13 @@ use File;
 class EntrenamientoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Esta función se encarga de registrar un nuevo entrenamiento en la base de datos. Primero valida los datos recibidos del formulario,
+     *  luego crea una nueva instancia del modelo Entrenamiento, asigna los valores de los campos recibidos del formulario a las propiedades
+     *  del modelo y guarda la imagen asociada al entrenamiento si se proporcionó una. Finalmente, redirecciona a la ruta 'dashboard'.
+     *
+     * @param Request $request
+     * @return void
      */
-    public function index()
-    {
-        //
-    }
     public function registrarEntrenamiento(Request $request)
     {
        
@@ -56,24 +57,10 @@ class EntrenamientoController extends Controller
 }
     
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Esta función muestra la información de un entrenamiento específico. Recupera el entrenamiento con el ID proporcionado y lo pasa a la vista 'informacion'.
      */
     public function informacion($id)
     {
@@ -81,7 +68,8 @@ class EntrenamientoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Esta función muestra el formulario para editar un entrenamiento específico.
+     *  Recupera el entrenamiento con el ID proporcionado y lo pasa a la vista 'actualizar'
      */
     public function edit($id)
     {
@@ -89,7 +77,10 @@ class EntrenamientoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Esta función actualiza un entrenamiento existente en la base de datos.
+     *  Primero valida los datos recibidos del formulario, luego recupera el entrenamiento con el ID proporcionado, actualiza sus propiedades
+     *  con los nuevos valores recibidos del formulario y guarda los cambios.
+     *  Finalmente, redirecciona a la ruta '/dashboard' con un mensaje de éxito..
      */
     public function update(Request $request, $id)
     {
@@ -113,7 +104,8 @@ class EntrenamientoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Esta función elimina un entrenamiento específico de la base de datos. 
+     * Recupera el entrenamiento con el ID proporcionado y lo elimina. Luego redirecciona a la ruta '/dashboard' con un mensaje de éxito.
      */
     public function destroy( $id)
     {
