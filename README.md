@@ -6,7 +6,8 @@ AtomGym es una página web de entrenamientos donde los usuarios pueden registrar
 
 ## Requisitos Previos
 
-- PHP >= 8.3
+- PHP >= 8.3 ![image](https://github.com/joseaholgado/atomgym_laravel/assets/115182985/f59b2721-0e10-4035-9f20-5922a6f7b1db)
+
 - Laravel 10
 - MySQL u otro sistema de gestión de bases de datos compatible
 - Composer
@@ -32,6 +33,8 @@ AtomGym es una página web de entrenamientos donde los usuarios pueden registrar
 - Tailwind CSS se emplea para el diseño del frontend, proporcionando un estilo moderno y adaptable.
 - Se ha implementado un sistema de paginación para facilitar la navegación entre los registros.
 - Se ha implementado la subida de archivos para adjuntar imágenes a los entrenamientos registrados.
+- Se han añadido validaciones en el registro y actualización de entrenamientos, así como en la creación de grupos musculares desde el lado del administrador.
+- Se ha creado un componente propio para el buscador.
 
 ## Seeders
 
@@ -65,4 +68,4 @@ El archivo de configuración de la base de datos (` .env`) contiene la siguiente
 
 ## Créditos
 
-Este proyecto fue creado por [Jose Antonio Holgado Bonet]. 
+Este proyecto fue creado por [Jose Antonio Holgado Bonet].
