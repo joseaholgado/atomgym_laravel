@@ -16,7 +16,7 @@ use App\Http\Controllers\MusculoController;
      */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

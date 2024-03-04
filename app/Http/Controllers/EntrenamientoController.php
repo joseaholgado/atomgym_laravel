@@ -42,6 +42,7 @@ class EntrenamientoController extends Controller
     $entrenamiento->repeticiones = $request->input('repeticiones');
     $entrenamiento->descripcion = $request->input('descripcion'); 
     $entrenamiento->user_id = auth()->user()->id;#asigna el id del usuario autenticado
+
     if ($request->hasFile('imagen_ruta')) {
         $path = $request->file('imagen_ruta')->store('images');
         $entrenamiento->imagen_ruta = $path;
@@ -50,6 +51,8 @@ class EntrenamientoController extends Controller
         if (!File::copy(storage_path('app/' . $path), $publicPath)) {
             throw new Exception('Failed to copy file to ' . $publicPath);
         }
+    }else {
+        $entrenamiento->imagen_ruta = 'images/logo.png'; // ruta de la imagen predeterminada
     }
     $entrenamiento->save();#guarda el registro
 

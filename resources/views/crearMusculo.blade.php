@@ -122,7 +122,7 @@
                         </select><br>
 
                         <button class="boton" type="submit" value="eliminar" style="border:2px solid #FFA500; border-radius:15px;">
-                            <span>Añadir</span>
+                            <span>Eliminar</span>
                         </button>
                     </form>
 

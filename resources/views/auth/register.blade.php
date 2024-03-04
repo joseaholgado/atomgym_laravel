@@ -57,3 +57,41 @@
         </div>
     </form>
 </x-guest-layout>
+<script>
+    // Select all paths in the SVG
+    let paths = document.querySelectorAll('svg path');
+
+// For each path...
+for (let i = 0; i < paths.length; i++) {
+    let path = paths[i];
+
+    // Get the length of the path
+    let length = path.getTotalLength();
+
+    // Set a CSS letiable for the length
+    path.style.setProperty('--path-stroke', length);
+
+    // Reset the length of the path to 0
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+}
+
+// Create the animation
+anime({
+    targets: 'path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 5500,
+    delay: function(el, i) { return i * 10 },
+    direction: 'alternate',
+    loop: true
+});
+anime({
+    targets: 'svg ',
+    translateY: 20,
+    duration: 2000,
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+    loop: true
+});
+</script>

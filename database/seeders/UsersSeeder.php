@@ -32,7 +32,7 @@ class UsersSeeder extends Seeder
                 'email' => 'user' . $index . '@example.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('12341234'),
-                'foto' => null,
+                'foto' => "images/logo.png",
                 'roles' => 'user',
             ]);
         }
