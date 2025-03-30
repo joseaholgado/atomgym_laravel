@@ -1,5 +1,9 @@
 # atomgym_laravel
 Proyecto en Laravel de 2ªDAW
+
+# AVISO
+⚠️ Este proyecto está archivado y puede contener vulnerabilidades. No se recomienda su uso en producción.
+
 # AtomGym
 
 AtomGym es una página web de entrenamientos donde los usuarios pueden registrar rutinas de entrenamiento personalizadas. ![image](https://github.com/joseaholgado/atomgym_laravel/assets/115182985/8252e463-8063-41c7-bd35-b00137d1660b)
